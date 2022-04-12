@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare var alertify:any;
+import { AlertifyService,MessageType } from 'src/app/services/admin/alertify.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -7,10 +7,10 @@ declare var alertify:any;
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alertify:AlertifyService) { }
 
   ngOnInit(): void {
-    alertify.success('Welcome to the Admin Panel');
+    this.alertify.message("Welcome to the admin panel", MessageType.Success);
   }
 
 }
