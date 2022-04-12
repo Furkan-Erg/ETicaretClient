@@ -15,6 +15,6 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     CommonModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, SidebarComponent, FooterComponent]
 })
 export class ComponentsModule { }
