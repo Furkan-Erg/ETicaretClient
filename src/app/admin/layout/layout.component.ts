@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertifyService,MessageType } from 'src/app/services/admin/alertify.service';
+import {
+  AlertifyService,
+  MessageType,
+  Position,
+} from 'src/app/services/admin/alertify.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-
-  constructor(private alertify:AlertifyService) { }
+  constructor(private alertify: AlertifyService) {}
 
   ngOnInit(): void {
-    this.alertify.message("Welcome to the admin panel", MessageType.Success);
+    this.alertify.message('Welcome to the admin panel', {
+      messageType: MessageType.Success,
+      delay: 5,
+      dismisothers: true,
+      position: Position.TopCenter,
+    });
   }
-
 }
