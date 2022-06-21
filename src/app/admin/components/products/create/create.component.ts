@@ -30,12 +30,22 @@ export class CreateComponent implements OnInit {
     create_product.stock = parseInt(stock.value);
     create_product.price = parseFloat(price.value);
 
-    this.productService.create(create_product, () => {
-      this.alertify.message('Product created successfully', {
-        dismisothers: true,
-        messageType: MessageType.Success,
-        position: Position.TopRight,
-      });
-    });
+    this.productService.create(
+      create_product,
+      () => {
+        this.alertify.message('Product created successfully', {
+          dismisothers: true,
+          messageType: MessageType.Success,
+          position: Position.TopRight,
+        });
+      },
+      (errorMessage) => {
+        this.alertify.message(errorMessage, {
+          dismisothers: true,
+          messageType: MessageType.Error,
+          position: Position.TopRight,
+        });
+      }
+    );
   }
 }
